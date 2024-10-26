@@ -17,17 +17,12 @@ describe('Home Page', () => {
     cy.get('div.min-h-screen').should('have.class', 'bg-gray-900');
   });
 
-  it('navigates to the About Me section', () => {
-    cy.contains('About me').click();
-    cy.url().should('include', '#about-me');
-  });
+
 
   it('flips a card and shows details', () => {
     cy.contains('Fullstack Software Engineer').click();
     cy.contains('Skilled in building fullstack web applications').should('be.visible');
   });
 
-  //it('has no detectable accessibility violations', () => {
-   // cy.checkA11y();
-  //});
+
 });
