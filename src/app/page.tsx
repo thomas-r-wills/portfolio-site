@@ -391,10 +391,13 @@ export default function Page() {
         className={`py-6  ${
           isDarkMode ? "bg-gray-800 text-white" : "bg-gray-300 text-gray-900"
         }`}
+        data-testid="footer-section"
       >
         <div className="container mx-auto px-4 text-center space-y-4">
           {/*<!-- Copyright and Licensing Notice -->*/}
-          <p className="text-sm">
+          <p className="text-sm"
+          
+          >
             © Thomas Wills 2024. Source code available under the&nbsp;
             <a
               href="https://opensource.org/licenses/MIT"

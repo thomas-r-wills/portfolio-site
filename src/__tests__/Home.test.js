@@ -1,7 +1,7 @@
 // Copyright 2024 Thomas Wills
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
 
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import Home from '@/app/page';
 
@@ -19,17 +19,19 @@ describe('Home Component', () => {
       name: /dark mode|light mode/i,
     });
 
- // Select the h1 element using data-testid
- const h1Element = screen.getByTestId('resume-heading');
+    // Select the element using data-testid
+    const pElement = screen.getByTestId('footer-section');
 
- // Check initial background color of the h1 element for light mode
- expect(h1Element).toHaveClass('bg-indigo-200');
+    // Check initial background color for light mode
+    expect(pElement).toHaveClass('bg-gray-300');
 
- // Toggle to dark mode
- fireEvent.click(darkModeButton);
+    // Wrap the state change in act
+    act(() => {
+      fireEvent.click(darkModeButton);
+    });
 
- // Check background color of the h1 element after toggling to dark mode
- expect(h1Element).toHaveClass('bg-indigo-700');
+    // Check background color after toggling to dark mode
+    expect(pElement).toHaveClass('bg-gray-800');
   });
 
   it('flips a card and shows details', () => {
