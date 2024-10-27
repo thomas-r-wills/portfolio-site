@@ -6,13 +6,9 @@ const nextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
-  // Enable static export for GitHub Actions
-  output: isGitHubActions ? 'export' : undefined,
+  basePath: isGitHubActions ? '/portfolio-site' : '', // Set basePath for GitHub Pages
+  assetPrefix: isGitHubActions ? '/portfolio-site/' : '', // Set assetPrefix for static files
+  output: isGitHubActions ? 'export' : undefined, // Enable static export for GitHub Actions
 };
 
-// Uncomment the lines below for local development with Next.js
-// nextConfig.distDir = '.next';
-
 export default nextConfig;
-
-
