@@ -47,7 +47,6 @@ export default function Page() {
   const movingBox = useRef<number>(0);
   const animationRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
- 
 
   // Toggle dark mode
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
@@ -153,7 +152,7 @@ export default function Page() {
 
   const updateActiveMobileSection = (section: number) => {
     setActiveMobileSection(section);
-  }
+  };
 
   // useEffect for resizing and animation initialization
   useEffect(() => {
@@ -199,9 +198,7 @@ export default function Page() {
           isDarkMode ? "bg-gray-900" : "bg-gray-50"
         } ${
           isMobileView
-            
-              ? "fixed w-full top-0 z-50"
-             
+            ? "fixed w-full top-0 z-50"
             : "fixed w-full top-0 bg-opacity-80 p-8 backdrop-blur-sm z-50"
         }`}
       >
@@ -212,17 +209,20 @@ export default function Page() {
           {isMobileView ? (
             <div className="flex flex-wrap w-full backdrop-blur-md text-center transition-opacity duration-500">
               <div
-              
                 className={`flex items-center justify-center ${
-          isDarkMode ? "bg-gray-900" : "bg-gray-50"
-        } h-10 w-6/12`}
+                  isDarkMode ? "bg-gray-900" : "bg-gray-50"
+                } h-10 w-6/12`}
                 aria-label={
                   isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
                 }
               >
-                <h1 className={`text-m font-bold ${
-                isDarkMode ? "text-gray-200" : "text-zinc-600"
-              }`}>Thomas Wills</h1>
+                <h1
+                  className={`text-m font-bold ${
+                    isDarkMode ? "text-gray-200" : "text-zinc-600"
+                  }`}
+                >
+                  Thomas Wills
+                </h1>
               </div>
               <div
                 onClick={toggleDarkMode}
@@ -233,36 +233,41 @@ export default function Page() {
                   isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
                 }
               >
-                <h1 className={`text-sm ${
-                isDarkMode ? "text-gray-200" : "text-zinc-600"
-              }`}>{isDarkMode ? "Light Mode" : "Dark Mode"}</h1>
+                <h1
+                  className={`text-sm ${
+                    isDarkMode ? "text-gray-200" : "text-zinc-600"
+                  }`}
+                >
+                  {isDarkMode ? "Light Mode" : "Dark Mode"}
+                </h1>
               </div>
-              {
-                positions.map((pos, index) => (
-                  <div
-                    key={`header-box-content-display-${index}`}
+              {positions.map((pos, index) => (
+                <div
+                  key={`header-box-content-display-${index}`}
+                  onClick={() => {
+                    updateActiveMobileSection(index);
+                    // Smooth scroll to the top of the page
                     
-                    onClick={() => {updateActiveMobileSection(index)
-                      console.log(`clicked and activeMobileSection is ${activeMobileSection}`)
-                    }}
-                    className={` w-1/2 h-10 flex items-center justify-center ${getBoxClasses(
-                      index,
-                      isDarkMode
-                    )}`}
-                    aria-label={`Go to ${links[index]}`}
-                  >
-                    <h1 className="text-sm">
-                      {index === 0
-                        ? "Resume"
-                        : index === 1
-                        ? "About me"
-                        : index === 2
-                        ? "Projects"
-                        : "Contact me"}
-                    </h1>
-                  </div>
-                ))}
-              
+                   
+                    
+                  }}
+                  className={` w-1/2 h-10 flex items-center justify-center ${getBoxClasses(
+                    index,
+                    isDarkMode
+                  )}`}
+                  aria-label={`Go to ${links[index]}`}
+                >
+                  <h1 className="text-sm">
+                    {index === 0
+                      ? "Resume"
+                      : index === 1
+                      ? "About me"
+                      : index === 2
+                      ? "Projects"
+                      : "Contact me"}
+                  </h1>
+                </div>
+              ))}
             </div>
           ) : (
             <h1
@@ -358,8 +363,7 @@ export default function Page() {
         )}
         {isMobileView ? (
           <>
-            
-                <DynamicSection
+            <DynamicSection
               key={sections[activeMobileSection].id}
               id={sections[activeMobileSection].id}
               title={sections[activeMobileSection].title}
@@ -369,8 +373,6 @@ export default function Page() {
               cardStateArray={cardStateArray}
               handleFlip={handleFlip}
             />
-             
-            
           </>
         ) : (
           sections.map((section, index) => (
@@ -395,9 +397,7 @@ export default function Page() {
       >
         <div className="container mx-auto px-4 text-center space-y-4">
           {/*<!-- Copyright and Licensing Notice -->*/}
-          <p className="text-sm"
-          
-          >
+          <p className="text-sm">
             © Thomas Wills 2024. Source code available under the&nbsp;
             <a
               href="https://opensource.org/licenses/MIT"
