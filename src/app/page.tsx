@@ -273,7 +273,7 @@ export default function Page() {
             </div>
           ) : (
             <h1
-              className={`text-5xl ${isMobileView ? "pl-4 my-4" : ""} ${
+              className={`text-5xl text-center ${isMobileView ? "pl-4 my-4" : ""} ${
                 isDarkMode ? "text-gray-200" : "text-zinc-600"
               }`}
             >
@@ -281,7 +281,7 @@ export default function Page() {
             </h1>
           )}
           {!isMobileView && (
-            <div className="flex justify-between gap-4">
+            <div className="flex items-center justify-between gap-4">
               {isScrolled &&
                 positions.map((pos, index) => (
                   <a
@@ -310,7 +310,7 @@ export default function Page() {
                 ))}
               <button
                 onClick={toggleDarkMode}
-                className="p-2 bg-gray-300 dark:bg-gray-700 rounded-md text-sm"
+                className="p-2 h-12 bg-gray-300 dark:bg-gray-700 rounded-md text-sm"
                 aria-label={
                   isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
                 }
