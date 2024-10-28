@@ -28,7 +28,7 @@ const SCROLL_THRESHOLD = 80; // 5rem in pixels
 
 export default function Page() {
   // State declarations
-  const [positions, setPositions] = useState<Position[]>(defaultPositions);
+  const [positions, setPositions] = useState<Position[]>([...defaultPositions]);
   const [cardStateArray, setCardStateArray] = useState([
     [false, false, false, false],
     [false, false, false],
@@ -43,7 +43,7 @@ export default function Page() {
 
   // Refs for animation control
   const scrollListenerRef = useRef<number | null>(null);
-  const boxPositionNumbers = useRef<number[]>(defaultBoxPositionNumbers);
+  const boxPositionNumbers = useRef<number[]>([...defaultBoxPositionNumbers]);
   const movingBox = useRef<number>(0);
   const animationRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
@@ -58,8 +58,9 @@ export default function Page() {
 
     // Reset to default positions if switching from mobile to desktop
     if (!isCurrentlyMobile) {
-      setPositions(defaultPositions);
-      boxPositionNumbers.current = defaultBoxPositionNumbers;
+      setPositions([...defaultPositions]);
+      boxPositionNumbers.current = [...defaultBoxPositionNumbers];
+      movingBox.current = 0;
     }
   };
 
@@ -247,9 +248,10 @@ export default function Page() {
                   onClick={() => {
                     updateActiveMobileSection(index);
                     // Smooth scroll to the top of the page
-                    
-                   
-                    
+                    window.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    });
                   }}
                   className={` w-1/2 h-10 flex items-center justify-center ${getBoxClasses(
                     index,
