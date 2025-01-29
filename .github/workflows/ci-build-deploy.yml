@@ -33,6 +33,9 @@ jobs:
           rm -rf docs
           mv out docs
 
+      - name: Fix GitHub Pages `_next/` Assets
+        run: touch docs/.nojekyll
+
       - name: Commit and Push to `main`
         run: |
           git config --global user.name "GitHub Actions"
