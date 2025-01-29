@@ -56,6 +56,7 @@ export default function Home() {
                 alt="profile image"
                 width={160}
                 height={179}
+                unoptimized={true}
                 />
               </div>
             )}
