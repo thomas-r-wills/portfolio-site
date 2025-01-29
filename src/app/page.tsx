@@ -51,13 +51,8 @@ export default function Home() {
                   <div className="text-md bg-sky-900 text-white px-1 m-1 rounded font-bold text-left">Engineering Lead / Manager</div>
                   <div className="text-md bg-sky-900 text-white px-1 m-1 rounded font-bold text-left">Security Consultant</div>
                   </div>
-                  <Image 
-                src="/profile-photo-dark.webp"
-                alt="profile image"
-                width={160}
-                height={179}
-                unoptimized={true}
-                />
+                
+                <img src="/portfolio-site/profile-photo-dark.webp" alt="Profile Photo" width="160" height="179" />
               </div>
             )}
             {displayContent === "about" && (
